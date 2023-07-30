@@ -1,10 +1,37 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #424748;
 }
 
-a {
-  color: #00B7FF;
+body {
+  background-color: rgb(242, 243, 247);
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main"
+}
+
+body > nav {
+  grid-area: nav;
+  background-color: rgb(242, 243, 247);;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
+nav > span {
+  height: 30px;
+}
+
+#yellowHeader {
+  background-color: rgb(213, 215, 98);
+  height: 40px;
+  margin: none;
 }
 
 .login {
@@ -16,4 +43,18 @@ a {
 
 .login img {
   height: 30px;
+}
+
+.copyright {
+  text-align: center;
+}
+
+#homeContent {
+  margin-bottom: 250px;
+}
+
+#homeContent h2{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: 50px;
 }
