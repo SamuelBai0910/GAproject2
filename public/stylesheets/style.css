@@ -9,15 +9,16 @@ body {
   margin: 0;
   height: 100vh;
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 50px auto 1fr; 
   grid-template-areas: 
     "nav"
     "main"
+    "title";
 }
 
 body > nav {
   grid-area: nav;
-  background-color: rgb(242, 243, 247);;
+  background-color: rgb(242, 243, 247);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,8 +46,11 @@ nav > span {
   height: 30px;
 }
 
-.copyright {
+.title {
+  grid-area: title;
   text-align: center;
+  margin-top: 0;
+  height: 40px;
 }
 
 .homeContent {
@@ -58,3 +62,38 @@ nav > span {
   text-align: center;
   margin-top: 50px;
 }
+
+.copyright {
+  text-align: center;
+}
+
+.List {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+
+.List td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.List button {
+  background-color: rgb(213, 215, 98);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.List a {
+  color: rgb(213, 215, 98);
+  text-decoration: none;
+}
+
+.List a:hover {
+  text-decoration: underline;
+}
+
+
