@@ -2,9 +2,10 @@
 const Product = require('../models/product');
 
 module.exports = {
-  // 其他控制器方法...
-  // getFormattedListingDate,
   index,
+  show,
+  new: newProduct,
+  create,
 };
 
 async function index(req, res) {
@@ -12,8 +13,24 @@ async function index(req, res) {
   res.render('products/index', { products });
 }
 
-// function getFormattedListingDate(listingDate) {
-//   const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-//   return listingDate.toLocaleString('en-US', options);
-// }
+async function show(req, res) {
+  const product = await Product.findById(req.params.id);
+  const listingDate = new Date(product.listingDate);
+  res.render('products/show', { product: { ...product._doc} });
+}
+
+function newProduct(req, res) {
+  res.render('products/new', { errorMsg: '' });
+}
+
+async function create(req, res) {
+  try {
+    const newProduct = await Product.create(req.body);
+    res.redirect(`/products/${newProduct._id}`);
+  } catch (err) {
+    // Typically some sort of validation error
+    console.log(err);
+    res.render('products/new', { errorMsg: err.message });
+  }
+} 
 

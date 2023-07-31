@@ -15,7 +15,8 @@ const productSchema = new Schema({
   },
   description: { 
     type: String,
-    maxlength: 300 
+    maxlength: 300,
+    default: 'No description yet' 
   }
 });
 
