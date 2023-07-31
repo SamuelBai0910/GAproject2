@@ -7,8 +7,32 @@ module.exports = {
   show,
   new: newProduct,
   create,
-  delete: deleteProduct
+  delete: deleteProduct,
+  edit: editProduct,
+  update: updateProduct
 };
+
+async function updateProduct(req, res) {
+  try {
+    const productId = req.params.id;
+    const updatedProductData = req.body;
+    await Product.findByIdAndUpdate(productId, updatedProductData);
+    res.redirect(`/products/${productId}`);
+  } catch (err) {
+    console.error(err);
+    res.redirect('/products');
+  }
+}
+
+async function editProduct(req, res) {
+  try {
+    const product = await Product.findById(req.params.id);
+    res.render('products/edit', { product });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/products');
+  }
+}
 
 async function deleteProduct(req, res) {
   try {
@@ -44,5 +68,4 @@ async function create(req, res) {
     console.log(err);
   }
 } 
-
 

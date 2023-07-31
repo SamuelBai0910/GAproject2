@@ -1,0 +1,25 @@
+<!-- views/products/edit.ejs -->
+<%- include('../partials/header') %>
+<h1 class="title">Edit Product</h1>
+<section id="edit-page">
+  <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="<%= product.name %>" required>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" name="price" value="<%= product.price %>" required>
+    </div>
+    <div>
+      <label for="available">Available:</label>
+      <input type="checkbox" name="available" <%= product.available ? 'checked' : '' %>>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea name="description" maxlength="300"><%= product.description %></textarea>
+    </div>
+    <button type="submit">Update</button>
+  </form>
+</section>
+<%- include('../partials/footer') %>

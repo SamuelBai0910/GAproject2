@@ -11,6 +11,10 @@ router.get('/new', productController.new);
 router.get('/:id', productController.show);
 // Create new product
 router.post('/', productController.create);
+// show edit page
+router.get('/:id/edit', productController.edit);
+// update the form
+router.put('/:id', productController.update);
 // Delete product
 router.delete('/:id', productController.delete);
 
