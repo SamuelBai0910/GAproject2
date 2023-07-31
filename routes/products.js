@@ -11,5 +11,7 @@ router.get('/new', productController.new);
 router.get('/:id', productController.show);
 // Create new product
 router.post('/', productController.create);
+// Delete product
+router.delete('/:id', productController.delete);
 
 module.exports = router;

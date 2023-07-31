@@ -6,7 +6,11 @@
   <tbody>
     <% products.forEach(function(p) { %>
       <tr>
-        <td><button>DELETE</button></td>
+        <td>
+          <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
+            <button type="submit">DELETE</button>
+          </form>
+        </td>
         <td>Name: <%= p.name %></td>
         <td>Price: <%= p.price %></td>
         <td><a href="/products/<%= p._id %>">DETAILS</a></td>
