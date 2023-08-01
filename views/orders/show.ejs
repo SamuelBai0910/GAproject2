@@ -1,5 +1,16 @@
 <!-- views/orders/show.ejs -->
 <%- include('../partials/header') %>
 <h1 class="title">Order Details</h1>
-
+<section id="show-page">
+  <div>Order Name: </div>
+  <div><%= product.orderName %></div> <!-- Corrected variable name -->
+  <div>Product Name: </div>
+  <div><%= product.productName %></div> <!-- Corrected variable name -->
+  <div>Product Price: </div>
+  <div><%= product.productPrice %></div> <!-- Corrected variable name -->
+  <div>Quantity: </div>
+  <div><%= product.quantity %></div> <!-- Corrected variable name -->
+  <div>Products Price: </div>
+  <div><%= product.productsPrice %></div> <!-- Corrected variable name -->
+</section>
 <%- include('../partials/footer') %>

@@ -1,17 +1,23 @@
 <!-- views/orders/new.ejs -->
 <%- include('../partials/header') %>
 <h1 class="title">Create New Order</h1>
-  <form id="new-form" action="/orders" method="POST">
-  <label>Add to: </label>
-  <input type="text" name="name" required>
-  <label>SelectProduct: </label>
-  <select name="selectedProduct" id="selectedProduct">
+<form id="new-form" action="/orders" method="POST">
+  <label>Order Name: </label>
+  <input type="text" name="orderName" required>
+  <label>Product selection: </label>
+  <select name="productName"> <!-- Added "name" attribute -->
     <% products.forEach(function(product) { %>
-      <option value="<%= product._id %>"><%= product.name - product.price %></option>
+      <option value="<%= product._id %>"><%= product.name %> - $<%= product.price %></option>
     <% }); %>
   </select>
-  <label for="quantity">Quantity:</label>
+  <label>Product Name: </label>
+  <input type="text" name="productName" required> <!-- Corrected field name -->
+  <label>Product price: </label>
+  <input type="text" name="productPrice" required> <!-- Corrected field name -->
+  <label>Quantity:</label>
   <input type="number" name="quantity" min="1" required>
-  <input type="submit" value="Add Product">
+  <label>Products Price:</label>
+  <input type="number" name="productsPrice" min="0" required>
+  <input type="submit" value="Add new order">
 </form>
 <%- include('../partials/footer') %>

@@ -1,6 +1,23 @@
 <!-- views/orders/index.ejs -->
 <%- include('../partials/header') %>
 <h1 class="title">Order List</h1>
-<h2>Welcome to orders page</h2>
+<div class="homeContent">
+  <table class="List">
+  <tbody>
+    <% orders.forEach(function(o) { %>
+      <tr>
+        <td>
+          <form action="/orders/<%= o._id %>?_method=DELETE" method="POST">
+            <button type="submit">DELETE</button>
+          </form>
+        </td>
+        <td>Name: <%= o.name %></td>
+        <td>Price: <%= o.price %></td>
+        <td><a href="/orders/<%= o._id %>">DETAILS</a></td>
+      </tr>
+    <% }); %>
+  </tbody>
+  </table>
+</div>
 <%- include('../partials/footer') %>
 
