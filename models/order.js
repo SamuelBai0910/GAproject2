@@ -5,12 +5,12 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   orderName: { type: String, required: true },
-  totalPrice: { type: Number, required: true, min: 0 },
-  products: [{
+  productSelection: [{
     type: Schema.Types.ObjectId,
     ref: 'Product'
   }],
-  quantity: [{ type: Number, required: true, min: 1 }]
+  quantity: [{ type: Number, required: true, min: 1 }],
+  ProductsPrice: [{ type: Number, min: 0 }]
 });
 
-module.exports = mongoose.model('Order', orderSchema);
+module.exports = mongoose.model('orders', orderSchema);
