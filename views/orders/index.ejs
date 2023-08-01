@@ -1,7 +1,18 @@
 <!-- views/orders/index.ejs -->
 <%- include('../partials/header') %>
+<h1 class="title">Order List</h1>
 <div class="homeContent">
-  <h2>Welcome!</h2>
-  <h2>More information coming soon...</h2>  
+  <table class="List">
+  <tbody>
+    <% orders.forEach(function(o) { %>
+      <tr>
+        <td>Order Name: <%= o.orderName %></td>
+        <td>Total Price: <%= o.totalPrice %></td>
+        <td><a href="/orders/<%= o._id %>">DETAILS</a></td>
+      </tr>
+    <% }); %>
+  </tbody>
+  </table>
 </div>
 <%- include('../partials/footer') %>
+

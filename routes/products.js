@@ -3,17 +3,17 @@ var express = require('express');
 var router = express.Router();
 var productController = require('../controllers/products');
 
-/* GET products */
+/* Get all products */
 router.get('/', productController.index);
-// GET /products/new
+// Form of adding new product 
 router.get('/new', productController.new);
-// Get details of products
+// Get details of product
 router.get('/:id', productController.show);
 // Create new product
 router.post('/', productController.create);
-// show edit page
+// Form of editing page
 router.get('/:id/edit', productController.edit);
-// update the form
+// Confirming the editing form
 router.put('/:id', productController.update);
 // Delete product
 router.delete('/:id', productController.delete);

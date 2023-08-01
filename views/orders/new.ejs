@@ -1,0 +1,22 @@
+<!-- views/orders/new.ejs -->
+<%- include('../partials/header') %>
+<h1 class="title">Create New Order</h1>
+<section id="new-page">
+  <form action="/orders" method="post">
+    <label for="orderName">Order Name:</label>
+    <input type="text" id="orderName" name="orderName" required>
+
+    <label for="products">Products:</label>
+    <select name="selectedProduct">
+      <% products.forEach(function(product) { %>
+        <option value="<%= product._id %>"><%= product.name %> - <%= product.price %>$</option>
+      <% }); %>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" required>
+
+    <button type="submit">Add</button>
+  </form>
+</section>
+<%- include('../partials/footer') %>
