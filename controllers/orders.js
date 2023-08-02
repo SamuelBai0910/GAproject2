@@ -8,7 +8,7 @@ module.exports = {
   show,
   new: newOrder,
   create,
-  delete: deleteOrder,
+  delete: deleteOrder
 };
 
 async function deleteOrder(req, res) {
@@ -23,8 +23,12 @@ async function deleteOrder(req, res) {
 }
 
 async function index(req, res) {
-  const orders = await Order.find({});
-  res.render('orders/index', { orders });
+  try {
+    const orders = await Order.find({});
+    res.render('orders/index', { orders, errorMsg: '' });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 async function show(req, res) {
