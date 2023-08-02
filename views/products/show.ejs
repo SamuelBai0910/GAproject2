@@ -14,4 +14,35 @@
   <div><%= product.description %></div>
 </section>
 <a href="/products/<%= product._id %>/edit" class="update-button">UPDATE</a>
+
+<h2>Properties</h2>
+  <ul>
+    <% product.property.forEach(function(pro) { %>
+      <li>Discount: <%= pro.discount %></li>
+      <li>Variants: <%= pro.variants %></li>
+      <li>Tags: <%= pro.tags %></li>
+    <% }) %>
+  </ul>
+
+<h2>Add Property</h2>
+<form action="/products/<%= product._id %>/property" method="POST">
+  <label>Discount:
+    <select name="discount">
+      <option value="10% Off">10% Off</option>
+      <option value="20% Off">20% Off</option>
+      <option value="Free Shipping">Free Shipping</option>
+      <option value="Buy One Get One Free">Buy One Get One Free</option>
+      <option value="Flash Sale">Flash Sale</option>
+    </select>
+  </label><br>
+  <label>variants:
+    <input type="text" name="variants">
+  </label><br>
+  <label>Tags:
+    <input type="text" name="tags">
+  </label><br>
+  <button type="submit">Add Property</button>
+</form>
+
+
 <%- include('../partials/footer') %>

@@ -9,6 +9,8 @@ router.get('/', productController.index);
 router.get('/new', productController.new);
 // Get details of product
 router.get('/:id', productController.show);
+// Create new property
+router.post('/:id/property', productController.addProperty);
 // Create new product
 router.post('/', productController.create);
 // Form of editing page

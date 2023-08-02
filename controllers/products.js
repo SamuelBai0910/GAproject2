@@ -6,11 +6,29 @@ module.exports = {
   index,
   show,
   new: newProduct,
+  addProperty,
   create,
   delete: deleteProduct,
   edit: editProduct,
   update: updateProduct
 };
+
+async function addProperty(req, res) {
+  const { discount, variants } = req.body;
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+    product.property.push({ discount, variants });
+    await product.save();
+    res.redirect(`/products/${req.params.id}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error adding Property');
+  }
+}
+
 
 async function updateProduct(req, res) {
   try {
