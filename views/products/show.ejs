@@ -1,32 +1,62 @@
 <%- include('../partials/header') %>
-<h1 class="title">Product Details</h1>
-<section id="show-page">
-  <div>Name: </div>
-  <div><%= product.name %></div>
-  <div>Price: </div>
-  <div><%= product.price %>$</div>
-  <div>Listing Date: </div>
-  <div><%= product.listingDate.toLocaleDateString()%></div>
-  <div>Description: </div>
-  <div><%= product.description %></div>
-</section>
-<a href="/products/<%= product._id %>/edit" class="update-button">UPDATE</a>
+<p class="h1" class="title">Product Details</p>
 
-<h2>Product Picture</h2>
-<% if (pic) { %>
-  <img src="<%= pic.avatar %>" class="img-thumbnail" alt="">
-<% } else { %>
-  <p>No picture available</p>
-<% } %>
+<div class="container text-center">
+  <div class="row g-2">
+    <div class="col-6">
+      <div class="p-3" class="row justify-content-md-center">
+        <div class="col col-lg-2">
+        </div>
+        <div class="col-md-auto">
+          <div id="proForm">
+            <table class="table table-hover">
+            <tbody>
+              <tr>
+                <td>Name:</td>
+                <td><%= product.name %></td>
+              </tr>
+              <tr>
+                <td>Price:</td>
+                <td><%= product.price %>$</td>
+              </tr>
+              <tr>
+                <td>Listing Date:</td>
+                <td><%= product.listingDate %></td>
+              </tr>
+              <tr>
+                <td>Description:</td>
+                <td><%= product.description %></td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col col-lg-2">
+        </div>
+        <a href="/products/<%= product._id %>/edit">Update Product</a>
+      </div>
+    </div>
 
-<form action="/products/<%= product._id %>/pic" enctype="multipart/form-data" method="post">
-  <div>
-    <input type="file" name="image">
-    <button type="submit">Upload Picture</button>
-  </div>
-</form>
+    <div class="col-6">
+      <div class="p-3">
+        <% if (pic) { %>
+          <img src="<%= pic.avatar %>" class="img-thumbnail" alt="">
+        <% } else { %>
+          <p>No picture available</p>
+        <% } %>
+        
+        <form action="/products/<%= product._id %>/pic" enctype="multipart/form-data" method="post">
+          <div>
+            <input type="file" name="image" class="btn btn-warning">
+            <button type="submit" class="btn btn-warning">Upload Picture</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-<h2>Properties</h2>
+    <div class="col-6">
+      <div class="p-3">
+        <p class="h3">Properties</p>
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
     </div>
@@ -61,25 +91,33 @@
     <div class="col col-lg-2">
     </div>
   </div>
+      </div>
+    </div>
 
-<h2>Add Property</h2>
-<form action="/products/<%= product._id %>/property" method="POST">
-  <label>Discount:
-    <select name="discount">
-      <option value="10% Off">10% Off</option>
-      <option value="20% Off">20% Off</option>
-      <option value="Free Shipping">Free Shipping</option>
-      <option value="Buy One Get One Free">Buy One Get One Free</option>
-      <option value="Flash Sale">Flash Sale</option>
-    </select>
-  </label><br>
-  <label>variants:
-    <input type="text" name="variants">
-  </label><br>
-  <label>Tags:
-    <input type="text" name="tags">
-  </label><br>
-  <button type="submit">Add Property</button>
-</form>
+    <div class="col-6">
+      <div class="p-3">
+        <p class="h3">Add Property</p>
+        <form action="/products/<%= product._id %>/property" method="POST">
+          <label>Discount:
+            <select name="discount">
+              <option value="10% Off">10% Off</option>
+              <option value="20% Off">20% Off</option>
+              <option value="Free Shipping">Free Shipping</option>
+              <option value="Buy One Get One Free">Buy One Get One Free</option>
+              <option value="Flash Sale">Flash Sale</option>
+            </select>
+          </label><br>
+          <label>variants:
+            <input type="text" name="variants">
+          </label><br>
+          <label>Tags:
+            <input type="text" name="tags">
+          </label><br>
+          <button type="submit" class="btn btn-warning">Add Property</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%- include('../partials/footer') %>
