@@ -22,5 +22,7 @@ router.get('/:id/edit', productController.edit);
 router.put('/:id', productController.update);
 // Delete product
 router.delete('/:id', productController.delete);
+// Delete product/property
+router.delete('/:productId/properties/:propertyId', productController.deleteProperty);
 
 module.exports = router;

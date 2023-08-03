@@ -13,6 +13,7 @@ module.exports = {
   create,
   createPic,
   delete: deleteProduct,
+  deleteProperty,
   edit: editProduct,
   update: updateProduct
 };
@@ -95,6 +96,29 @@ async function deleteProduct(req, res) {
     res.redirect('/products');
   }
 }
+
+async function deleteProperty(req, res) {
+  try {
+    const productId = req.params.productId; // 修改为正确的参数名
+    const propertyId = req.params.propertyId; // 获取要删除的属性 ID
+
+    // 通过产品 ID 查找产品
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+
+    // 使用 $pull 操作符从 property 数组中移除对应的属性
+    product.property.pull({ _id: propertyId });
+    await product.save();
+
+    res.redirect(`/products/${productId}`); // 删除成功后返回 show 页面
+  } catch (err) {
+    console.error(err);
+    res.redirect(`/products/${productId}`); // 出现错误时也返回 show 页面
+  }
+}
+
 
 async function index(req, res) {
   const products = await Product.find({});

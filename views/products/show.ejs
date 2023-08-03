@@ -26,15 +26,41 @@
   </div>
 </form>
 
-
 <h2>Properties</h2>
-  <ul>
-    <% product.property.forEach(function(pro) { %>
-      <li>Discount: <%= pro.discount %></li>
-      <li>Variants: <%= pro.variants %></li>
-      <li>Tags: <%= pro.tags %></li>
-    <% }) %>
-  </ul>
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2">
+    </div>
+    <div class="col-md-auto">
+      <div id="proForm">
+        <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Discount</td>
+            <td>Variants</td>
+            <td>Tags</td>
+            <td>Delete</td>
+          </tr>
+          <% product.property.forEach(function(pro)  { %>
+            <tr>
+              <td><%= pro.discount %></td>
+              <td><%= pro.variants %>$</td>
+              <td><%= pro.tags %>$</td>
+              <td>
+                <form action="/products/<%= product._id %>/properties/<%= pro._id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-warning"> 
+                    &times;
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col col-lg-2">
+    </div>
+  </div>
 
 <h2>Add Property</h2>
 <form action="/products/<%= product._id %>/property" method="POST">
