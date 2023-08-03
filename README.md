@@ -6,7 +6,7 @@ This web app is designed for independent website sellers to manage their orders 
 ## What can "SellerEase" do
 SellerEase is a user-friendly platform that allows sellers to view, edit, and manage product listings. Login with Google account to ensure product data changes.
 
-## Screenshot(s):
+## Screenshots:
 
 ### Home Page (not logged in)
 ![alt text](https://res.cloudinary.com/dfbujyfrj/image/upload/v1691073559/no_logged_page_ssejw0.png)
