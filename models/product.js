@@ -31,7 +31,11 @@ const productSchema = new Schema({
     maxlength: 300,
     default: 'No description yet' 
   },
-  property :[propertySchema]
+  property :[propertySchema],
+  pic: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Pic',
+  }
 });
 
 module.exports = mongoose.model('Product', productSchema);

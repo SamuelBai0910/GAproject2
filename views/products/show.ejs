@@ -15,6 +15,21 @@
 </section>
 <a href="/products/<%= product._id %>/edit" class="update-button">UPDATE</a>
 
+<h2>Product Picture</h2>
+<% if (pic) { %>
+  <img src="<%= pic.avatar %>" alt="">
+<% } else { %>
+  <p>No picture available</p>
+<% } %>
+
+<form action="/products/<%= product._id %>/pic" enctype="multipart/form-data" method="post">
+  <div>
+    <input type="file" name="image">
+    <button type="submit">Upload Picture</button>
+  </div>
+</form>
+
+
 <h2>Properties</h2>
   <ul>
     <% product.property.forEach(function(pro) { %>
@@ -43,6 +58,5 @@
   </label><br>
   <button type="submit">Add Property</button>
 </form>
-
 
 <%- include('../partials/footer') %>

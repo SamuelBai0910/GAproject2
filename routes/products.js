@@ -1,6 +1,7 @@
-// /routes.js/users.js
+// /routes/products.js
 var express = require('express');
 var router = express.Router();
+var upload = require('../utils/multer');
 var productController = require('../controllers/products');
 
 /* Get all products */
@@ -13,6 +14,8 @@ router.get('/:id', productController.show);
 router.post('/:id/property', productController.addProperty);
 // Create new product
 router.post('/', productController.create);
+// Create new pic
+router.post('/:id/pic', upload.single('image'), productController.createPic);
 // Form of editing page
 router.get('/:id/edit', productController.edit);
 // Confirming the editing form
