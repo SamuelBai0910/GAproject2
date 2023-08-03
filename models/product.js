@@ -1,6 +1,4 @@
-// models/product.js
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
 const propertySchema = new mongoose.Schema({
@@ -9,9 +7,6 @@ const propertySchema = new mongoose.Schema({
     enum: ['10% Off', '20% Off', 'Free Shipping', 'Buy One Get One Free', 'Flash Sale']
   },
   variants: {
-    type: String
-  },
-  tags: {
     type: String
   }
 })

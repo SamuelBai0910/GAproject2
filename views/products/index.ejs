@@ -1,38 +1,37 @@
 <%- include('../partials/header') %>
 <p class="h1" class="title" >All Products</p>
+
 <div class="row justify-content-md-center">
-  <div class="col col-lg-2">
-  </div>
+  <div class="col col-lg-2"></div>
   <div class="col-md-auto">
     <div id="indexForm">
       <table class="table table-hover">
-      <tbody>
-        <tr>
-          <td>DELETE</td>
-          <td>NAME</td>
-          <td>PRICE</td>
-          <td>DETAILS</td>
-        </tr>
-        <% products.forEach(function(p) { %>
+        <tbody>
+          <tr>
+            <td>DELETE</td>
+            <td>NAME</td>
+            <td>PRICE</td>
+            <td>DETAILS</td>
+          </tr>
+          <% products.forEach(function(p) { %>
           <tr>
             <td>
-              <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-warning"> 
-                  &times;
-                </button>
-              </form>
+            <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-warning"> 
+                &times;
+              </button>
+            </form>
             </td>
             <td><%= p.name %></td>
             <td><%= p.price %>$</td>
             <td><a href="/products/<%= p._id %>">DETAILS</a></td>
           </tr>
-        <% }); %>
-      </tbody>
+          <% }); %>
+        </tbody>
       </table>
     </div>
   </div>
-  <div class="col col-lg-2">
-  </div>
+  <div class="col col-lg-2"></div>
 </div>
 
 <%- include('../partials/footer') %>

@@ -1,6 +1,4 @@
-// models/pic.js
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
 const picSchema = new mongoose.Schema({

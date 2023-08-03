@@ -75,8 +75,8 @@ nav > span {
 
 .img-thumbnail {
   object-fit: contain;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
 }
 
 .homePage {
@@ -88,11 +88,18 @@ nav > span {
 #indexForm {
   text-align: left;
   margin-top: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 #newForm #editForm {
   text-align: left;
   margin-top: 50px;
-  margin-bottom: 90px;
+  margin-bottom: 150px;
+}
+
+.col-6 {
+  border-color: rgb(246, 194, 68);
+  border-style: solid;
+  border-radius: 15px;
+  border-width: 1px;
 }

@@ -1,4 +1,3 @@
-// controllers/produsts.js
 const { render } = require('ejs');
 const Product = require('../models/product');
 const Pic = require('../models/pic');
@@ -24,28 +23,22 @@ async function createPic(req, res, next) {
     if (!product) {
       return res.status(404).send('Product not found');
     }
-
     const result = await cloudinary.uploader.upload(req.file.path);
-
     const newPic = new Pic({
       name: req.body.name,
       avatar: result.secure_url,
       cloudinary_id: result.public_id
     });
-
     const savedPic = await newPic.save();
-
     product.pic = savedPic._id;
     console.log(savedPic);
     await product.save();
-
     res.redirect(`/products/${req.params.id}`);
   } catch (err) {
     console.error(err);
-    res.redirect(`/products/${req.params.id}`); // Handle the error by redirecting to the product page
+    res.redirect(`/products/${req.params.id}`); 
   }
 }
-
 
 async function addProperty(req, res) {
   const { discount, variants } = req.body;
@@ -62,7 +55,6 @@ async function addProperty(req, res) {
     res.status(500).send('Error adding Property');
   }
 }
-
 
 async function updateProduct(req, res) {
   try {
@@ -99,26 +91,21 @@ async function deleteProduct(req, res) {
 
 async function deleteProperty(req, res) {
   try {
-    const productId = req.params.productId; // 修改为正确的参数名
-    const propertyId = req.params.propertyId; // 获取要删除的属性 ID
-
-    // 通过产品 ID 查找产品
+    const productId = req.params.productId; 
+    const propertyId = req.params.propertyId; 
     const product = await Product.findById(productId);
     if (!product) {
       return res.status(404).send('Product not found');
     }
-
-    // 使用 $pull 操作符从 property 数组中移除对应的属性
+    // Mongoose Method
     product.property.pull({ _id: propertyId });
     await product.save();
-
-    res.redirect(`/products/${productId}`); // 删除成功后返回 show 页面
+    res.redirect(`/products/${productId}`); 
   } catch (err) {
     console.error(err);
-    res.redirect(`/products/${productId}`); // 出现错误时也返回 show 页面
+    res.redirect(`/products/${productId}`); 
   }
 }
-
 
 async function index(req, res) {
   const products = await Product.find({});
@@ -132,7 +119,8 @@ async function show(req, res) {
       return res.status(404).send('Product not found');
     }
     const listingDate = new Date(product.listingDate);
-    const pic = await Pic.findById(product.pic); // Find the associated pic
+    // Find the associated pic
+    const pic = await Pic.findById(product.pic); 
     console.log(pic);
     res.render('products/show', { product: { ...product._doc, listingDate }, pic });
   } catch (err) {
