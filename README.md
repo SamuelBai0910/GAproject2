@@ -37,7 +37,7 @@ Updating page.
 
 # Getting Started: 
  
-[Click to "SellerEase"](https://SamuelBai0910.github.io/GAproject1)
+[Click to "SellerEase"](http://localhost:3000/)
 
 # Next Steps: 
 * Sellers can add products to orders and creating and deleting orders. 
