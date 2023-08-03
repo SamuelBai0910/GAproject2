@@ -117,9 +117,6 @@ async function show(req, res) {
   }
 }
 
-
-
-
 function newProduct(req, res) {
   res.render('products/new', { errorMsg: '' });
 }
@@ -132,20 +129,3 @@ async function create(req, res) {
     console.log(err);
   }
 } 
-
-// async function createPic(req, res, next) {
-//   try {
-//     //upload img to cloudinary
-//     const result = await cloudinary.v2.uploader.upload(req.file.path);
-//     // Create new pic
-//     let pic = new Pic({
-//       name: req.body.name,
-//       avatar: result.secure_url,
-//       cloudinary_id: result.public_id
-//     })
-//     await pic.save();
-//     res.redirect(`/products/show`);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }

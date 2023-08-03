@@ -19,9 +19,8 @@ const propertySchema = new mongoose.Schema({
 const productSchema = new Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  available: { type: Boolean },
   listingDate: {
-    type: Number,
+    type: Date,
     default: function() {
       return new Date()
     },

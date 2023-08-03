@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
-<p class="h1" id="indexTitle" >All Products</p>
+<p class="h1" class="title" >All Products</p>
 <div class="row justify-content-md-center">
   <div class="col col-lg-2">
   </div>
   <div class="col-md-auto">
-    <div class="index">
+    <div id="indexForm">
       <table class="table table-hover">
       <tbody>
         <tr>
@@ -17,11 +17,13 @@
           <tr>
             <td>
               <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
-                <button type="submit">DELETE</button>
+                <button type="submit" class="btn btn-warning"> 
+                  &times;
+                </button>
               </form>
             </td>
-            <td>Name: <%= p.name %></td>
-            <td>Price: <%= p.price %></td>
+            <td><%= p.name %></td>
+            <td><%= p.price %>$</td>
             <td><a href="/products/<%= p._id %>">DETAILS</a></td>
           </tr>
         <% }); %>

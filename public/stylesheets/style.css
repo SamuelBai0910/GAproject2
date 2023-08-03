@@ -35,7 +35,7 @@ body {
 
 .container > #yellowHeader {
   grid-area: yellowHeader;
-  background-color: rgb(213, 215, 98);
+  background-color: rgb(246, 194, 68);
   height: 40px;
   margin: none;
 }
@@ -69,8 +69,8 @@ nav > span {
   height: 40px;
 }
 
-#indexTitle, #newTitle {
-  margin-top: 100px;
+.title {
+  margin-top: 20px;
 }
 
 .img-thumbnail {
@@ -85,8 +85,14 @@ nav > span {
   margin-bottom: 270px;
 }
 
-.index {
-  text-align: center;
+#indexForm {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+#newForm #editForm {
+  text-align: left;
   margin-top: 50px;
-  margin-bottom: 170px;
+  margin-bottom: 90px;
 }
