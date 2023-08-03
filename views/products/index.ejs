@@ -1,23 +1,36 @@
-<!-- views/products/index.ejs -->
 <%- include('../partials/header') %>
-<h1 class="title">Product List</h1>
-<div class="homeContent">
-  <table class="List">
-  <tbody>
-    <% products.forEach(function(p) { %>
-      <tr>
-        <td>
-          <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
-            <button type="submit">DELETE</button>
-          </form>
-        </td>
-        <td>Name: <%= p.name %></td>
-        <td>Price: <%= p.price %></td>
-        <td><a href="/products/<%= p._id %>">DETAILS</a></td>
-      </tr>
-    <% }); %>
-  </tbody>
-  </table>
+<p class="h1" id="indexTitle" >All Products</p>
+<div class="row justify-content-md-center">
+  <div class="col col-lg-2">
+  </div>
+  <div class="col-md-auto">
+    <div class="index">
+      <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td>DELETE</td>
+          <td>NAME</td>
+          <td>PRICE</td>
+          <td>DETAILS</td>
+        </tr>
+        <% products.forEach(function(p) { %>
+          <tr>
+            <td>
+              <form action="/products/<%= p._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+              </form>
+            </td>
+            <td>Name: <%= p.name %></td>
+            <td>Price: <%= p.price %></td>
+            <td><a href="/products/<%= p._id %>">DETAILS</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col col-lg-2">
+  </div>
 </div>
 
 <%- include('../partials/footer') %>

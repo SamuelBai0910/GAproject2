@@ -6,17 +6,25 @@
 
 body {
   background-color: rgb(242, 243, 247);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: rgb(242, 243, 247);
   margin: 0;
   height: 100vh;
   display: grid;
-  grid-template-rows: 50px auto 1fr; 
+  grid-template-rows: 50px 50px auto 50px; 
   grid-template-areas: 
     "nav"
+    "yellowHeader"
     "main"
-    "title";
+    "copyright";
 }
 
-body > nav {
+.container > nav {
   grid-area: nav;
   background-color: rgb(242, 243, 247);
   display: flex;
@@ -25,14 +33,24 @@ body > nav {
   padding: 0 20px 0 30px;
 }
 
-nav > span {
-  height: 30px;
-}
-
-#yellowHeader {
+.container > #yellowHeader {
+  grid-area: yellowHeader;
   background-color: rgb(213, 215, 98);
   height: 40px;
   margin: none;
+}
+
+.container > main {
+  grid-area: main;
+}
+
+.container > .copyright {
+  grid-area: copyright;
+  text-align: center;
+}
+
+nav > span {
+  height: 30px;
 }
 
 .login {
@@ -46,64 +64,29 @@ nav > span {
   height: 30px;
 }
 
-.title {
-  grid-area: title;
+.h1 {
   text-align: center;
-  margin-top: 50px;
   height: 40px;
 }
 
-.homeContent {
-  margin-bottom: 250px;
+#indexTitle, #newTitle {
+  margin-top: 100px;
 }
 
-.homeContent > h2{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.img-thumbnail {
+  object-fit: contain;
+  height: 200px;
+  width: 200px;
+}
+
+.homePage {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 270px;
+}
+
+.index {
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 170px;
 }
-
-.copyright {
-  text-align: center;
-}
-
-.List {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px; 
-}
-
-.List td {
-  padding: 8px;
-  border: 1px solid #ccc;
-}
-
-.List button {
-  background-color: rgb(213, 215, 98);
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.List a {
-  color: rgb(213, 215, 98);
-  text-decoration: none;
-}
-
-.List a:hover {
-  text-decoration: underline;
-}
-
-#show-page {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin: 0px 0px 200px 500px;
-}
-
-#show-page div:nth-child(even) {
-  font-weight: bold;
-}
-

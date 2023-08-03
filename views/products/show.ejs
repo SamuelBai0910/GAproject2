@@ -1,4 +1,3 @@
-<!-- views/products/show.ejs -->
 <%- include('../partials/header') %>
 <h1 class="title">Product Details</h1>
 <section id="show-page">
@@ -17,7 +16,7 @@
 
 <h2>Product Picture</h2>
 <% if (pic) { %>
-  <img src="<%= pic.avatar %>" alt="">
+  <img src="<%= pic.avatar %>" class="img-thumbnail" alt="">
 <% } else { %>
   <p>No picture available</p>
 <% } %>
